@@ -1,22 +1,23 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 public static class TextFileReadWriter
 {
     #region Method
 
-    public static string ReadFromAssets(string relativePath)
+    public static TextFileIOResult ReadFromAssets(string relativePath)
     {
         return ReadFromFile(Application.dataPath + ToRelativePath(relativePath));
     }
 
-    public static string ReadFromStreamingAssets(string relativePath)
+    public static TextFileIOResult ReadFromStreamingAssets(string relativePath)
     {
         return ReadFromFile(Application.streamingAssetsPath + ToRelativePath(relativePath));
     }
 
-    public static string ReadFromFile(string absolutePath)
+    public static TextFileIOResult ReadFromFile(string absolutePath)
     {
-        System.IO.TextFileReadWriter.Result result = System.IO.TextFileReadWriter.Read(absolutePath);
+        TextFileIOResult result = System.IO.TextFileReadWriter.Read(absolutePath);
 
         if (!result.isSuccess)
         {
@@ -24,29 +25,29 @@ public static class TextFileReadWriter
             return null;
         }
 
-        return result.text;
+        return result;
     }
 
-    public static bool WriteToAssets(string relativePath, string text)
+    public static TextFileIOResult WriteToAssets(string relativePath, string text)
     {
         return WriteToFile(Application.dataPath + ToRelativePath(relativePath), text);
     }
 
-    public static bool WriteToStreamingAssets(string relativePath, string text)
+    public static TextFileIOResult WriteToStreamingAssets(string relativePath, string text)
     {
         return WriteToFile(Application.streamingAssetsPath + ToRelativePath(relativePath), text);
     }
 
-    public static bool WriteToFile(string absolutePath, string text)
+    public static TextFileIOResult WriteToFile(string absolutePath, string text)
     {
-        System.IO.TextFileReadWriter.Result result = System.IO.TextFileReadWriter.Write(absolutePath, text);
+        TextFileIOResult result = System.IO.TextFileReadWriter.Write(absolutePath, text);
 
         if (!result.isSuccess)
         {
             Debug.LogWarning(result.text);
         }
 
-        return result.isSuccess;
+        return result;
     }
 
     private static string ToRelativePath(string path)

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.IO;
 
 public class Sample : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class Sample : MonoBehaviour
     {
         if (Input.GetKeyDown(this.WriteTextKey))
         {
-            if (TextFileReadWriter.WriteToStreamingAssets("SampleDir/TextFile.txt", this.text))
+            TextFileIOResult result = TextFileReadWriter.WriteToStreamingAssets("SampleDir/TextFile.txt", this.text);
+
+            if (result.isSuccess)
             {
                 Debug.Log("Success : Write Text.");
             }
@@ -28,9 +31,11 @@ public class Sample : MonoBehaviour
 
         if (Input.GetKeyDown(this.ReadTextKey))
         {
-            this.text = TextFileReadWriter.ReadFromStreamingAssets("SampleDir/TextFile.txt");
+            TextFileIOResult result = TextFileReadWriter.ReadFromStreamingAssets("SampleDir/TextFile.txt");
 
-            if (this.text != null)
+            this.text = result.text;
+
+            if (result.isSuccess)
             {
                 Debug.Log("Success : Read Text.");
             }
@@ -43,8 +48,8 @@ public class Sample : MonoBehaviour
 
     protected virtual void OnGUI()
     {
-        GUILayout.Label("[" + this.ReadTextKey       + "] Read Json.");
-        GUILayout.Label("[" + this.WriteTextKey      + "] Write Json.");
+        GUILayout.Label("[" + this.ReadTextKey       + "] Read Text.");
+        GUILayout.Label("[" + this.WriteTextKey      + "] Write Text.");
     }
 
     #endregion Method

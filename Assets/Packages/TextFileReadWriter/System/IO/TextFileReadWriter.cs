@@ -4,30 +4,14 @@ namespace System.IO
 {
     public static class TextFileReadWriter
     {
-        #region Class
-
-        public class Result
-        {
-            public readonly bool   isSuccess;
-            public readonly string text;
-
-            public Result(bool isSuccess, string text)
-            {
-                this.isSuccess = isSuccess;
-                this.text      = text;
-            }
-        }
-
-        #endregion Class
-
         #region Method
 
-        public static Result Write(string path, string text)
+        public static TextFileIOResult Write(string path, string text)
         {
             return Write(path, text, Encoding.UTF8);
         }
 
-        public static Result Write(string path, string text, Encoding encoding, bool overwrite = true)
+        public static TextFileIOResult Write(string path, string text, Encoding encoding, bool overwrite = true)
         {
             // NOTE:
             // Use "Write" not "WriteLine", because of the line-break will be inserted.
@@ -41,7 +25,7 @@ namespace System.IO
 
             if (File.Exists(path) && !overwrite)
             {
-                return new Result(false, path + " already exists.");
+                return new TextFileIOResult(false, path + " already exists.");
             }
 
             try
@@ -51,36 +35,36 @@ namespace System.IO
                     writer.Write(text);
                 }
 
-                return new Result(true, text);
+                return new TextFileIOResult(true, text);
             }
             catch (Exception exception)
             {
-                return new Result(false, exception.Message);
+                return new TextFileIOResult(false, exception.Message);
             }
         }
 
-        public static Result Read(string path)
+        public static TextFileIOResult Read(string path)
         {
             return ReadFromFile(path, Encoding.UTF8);
         }
 
-        public static Result ReadFromFile(string path, Encoding encoding)
+        public static TextFileIOResult ReadFromFile(string path, Encoding encoding)
         {
             try
             {
                 FileInfo fileInfo = new FileInfo(path);
-                string text;
+                string   text;
 
                 using (StreamReader reader = new StreamReader(fileInfo.OpenRead(), encoding))
                 {
                     text = reader.ReadToEnd();
                 }
 
-                return new Result(true, text);
+                return new TextFileIOResult(true, text);
             }
             catch (Exception exception)
             {
-                return new Result(false, exception.Message);
+                return new TextFileIOResult(false, exception.Message);
             }
         }
 
