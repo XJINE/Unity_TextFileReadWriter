@@ -56,3 +56,11 @@ Update Mode: updateDependencies
 
 The following packages were removed:
   com.unity.package-manager-ui@2.2.0
+
+=== Mon Nov 16 13:11:47 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.ide.visualstudio@2.0.2

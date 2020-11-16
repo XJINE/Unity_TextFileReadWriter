@@ -1,0 +1,11 @@
+{
+  "name": "xjine.textfilereadwriter",
+  "displayName": "Text File Read Writer",
+  "version": "1.0.0",
+  "author": {
+    "name": "XJINE"
+  },
+  "type": "library",
+  "hideInEditor": false,
+  "description": "TextFileReadWriter provides simple functions to Read/Write text from/to file."
+}

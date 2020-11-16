@@ -19,10 +19,9 @@ public static class TextFileReadWriter
     {
         TextFileIOResult result = System.IO.TextFileReadWriter.Read(absolutePath);
 
-        if (!result.isSuccess)
+        if (!result.success)
         {
             Debug.LogWarning(result.text);
-            return null;
         }
 
         return result;
@@ -42,7 +41,7 @@ public static class TextFileReadWriter
     {
         TextFileIOResult result = System.IO.TextFileReadWriter.Write(absolutePath, text);
 
-        if (!result.isSuccess)
+        if (!result.success)
         {
             Debug.LogWarning(result.text);
         }

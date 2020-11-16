@@ -5,9 +5,9 @@ public class Sample : MonoBehaviour
 {
     #region Field
 
-    public string  text = "This is sample text.";
-    public KeyCode ReadTextKey  = KeyCode.R;
-    public KeyCode WriteTextKey = KeyCode.W;
+    public string  text         = "This is sample text.";
+    public KeyCode readTextKey  = KeyCode.R;
+    public KeyCode writeTextKey = KeyCode.W;
 
     #endregion Field
 
@@ -15,11 +15,11 @@ public class Sample : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.GetKeyDown(this.WriteTextKey))
+        if (Input.GetKeyDown(this.writeTextKey))
         {
             TextFileIOResult result = TextFileReadWriter.WriteToStreamingAssets("SampleDir/TextFile.txt", this.text);
 
-            if (result.isSuccess)
+            if (result.success)
             {
                 Debug.Log("Success : Write Text.");
             }
@@ -29,13 +29,13 @@ public class Sample : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(this.ReadTextKey))
+        if (Input.GetKeyDown(this.readTextKey))
         {
             TextFileIOResult result = TextFileReadWriter.ReadFromStreamingAssets("SampleDir/TextFile.txt");
 
             this.text = result.text;
 
-            if (result.isSuccess)
+            if (result.success)
             {
                 Debug.Log("Success : Read Text.");
             }
@@ -48,8 +48,8 @@ public class Sample : MonoBehaviour
 
     protected virtual void OnGUI()
     {
-        GUILayout.Label("[" + this.ReadTextKey       + "] Read Text.");
-        GUILayout.Label("[" + this.WriteTextKey      + "] Write Text.");
+        GUILayout.Label("[" + this.readTextKey  + "] Read Text.");
+        GUILayout.Label("[" + this.writeTextKey + "] Write Text.");
     }
 
     #endregion Method

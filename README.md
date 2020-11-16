@@ -4,9 +4,9 @@
 
 ## Import to Your Project
 
-You can import this asset from UnityPackage.
+Paste this code into PackageManager > Add package from git URL.
 
-- [TextFileReadWriter.unitypackage](https://github.com/XJINE/Unity_TextFileReadWriter/blob/master/TextFileReadWriter.unitypackage)
+> https://github.com/XJINE/Unity_TextFileReadWriter.git?path=/Packages/TextFileReadWriter
 
 ## How to Use
 
