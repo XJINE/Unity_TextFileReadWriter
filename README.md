@@ -6,7 +6,9 @@
 
 Paste this code into PackageManager > Add package from git URL.
 
-> https://github.com/XJINE/Unity_TextFileReadWriter.git?path=/Packages/TextFileReadWriter
+```
+https://github.com/XJINE/Unity_TextFileReadWriter.git?path=/Packages/TextFileReadWriter
+```
 
 ## How to Use
 
