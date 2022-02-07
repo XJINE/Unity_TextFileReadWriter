@@ -12,13 +12,13 @@ public class Sample : MonoBehaviour
 
     #region Method
 
-    protected virtual void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(writeTextKey))
         {
-            var result = TextFileReadWriter.WriteToStreamingAssets("SampleDir/TextFile.txt", text);
+            var (text, success) = TextFileReadWriter.WriteToStreamingAssets("SampleDir/TextFile.txt", this.text);
 
-            if (result.success)
+            if (success)
             {
                 Debug.Log("Success : Write Text.");
             }
@@ -30,11 +30,11 @@ public class Sample : MonoBehaviour
 
         if (Input.GetKeyDown(readTextKey))
         {
-            var result = TextFileReadWriter.ReadFromStreamingAssets("SampleDir/TextFile.txt");
+            var (text, success) = TextFileReadWriter.ReadFromStreamingAssets("SampleDir/TextFile.txt");
 
-            if (result.success)
+            if (success)
             {
-                text = result.text;
+                this.text = text;
                 Debug.Log("Success : Read Text.");
             }
             else
@@ -44,7 +44,7 @@ public class Sample : MonoBehaviour
         }
     }
 
-    protected virtual void OnGUI()
+    private void OnGUI()
     {
         GUILayout.Label("[" + readTextKey  + "] Read Text.");
         GUILayout.Label("[" + writeTextKey + "] Write Text.");

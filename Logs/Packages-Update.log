@@ -87,3 +87,11 @@ The following packages were added:
   com.unity.timeline@1.6.2
   com.unity.ugui@1.0.0
   com.unity.visualscripting@1.7.2
+
+=== Tue Feb  8 08:05:08 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.rider from version 3.0.7 to 3.0.9

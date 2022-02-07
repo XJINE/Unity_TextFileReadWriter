@@ -16,9 +16,9 @@ These are any other functions. It is enable to read/write in any place.
 ```csharp
 ReadFromAssets         (string relativePath)
 ReadFromStreamingAssets(string relativePath)
-ReadFromFile           (string absolutePath)
+Read                   (string absolutePath)
 
 WriteToAssets         (string relativePath, string text)
 WriteToStreamingAssets(string relativePath, string text)
-WriteToFile           (string absolutePath, string text)
+Write                 (string absolutePath, string text)
 ```

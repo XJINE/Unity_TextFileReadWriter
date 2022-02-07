@@ -54,10 +54,10 @@ namespace System.IO
 
         public static (string text, bool success) Read(string path)
         {
-            return ReadFromFile(path, Encoding.UTF8);
+            return Read(path, Encoding.UTF8);
         }
 
-        public static (string text, bool success) ReadFromFile(string path, Encoding encoding)
+        public static (string text, bool success) Read(string path, Encoding encoding)
         {
             try
             {
