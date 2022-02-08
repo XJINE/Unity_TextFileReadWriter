@@ -4,21 +4,24 @@
 
 ## How to Use
 
-Following codes are sample.
+Following functions are included.
 
 ```csharp
-TextFileReadWriter.WriteToStreamingAssets("SampleDir/TextFile.txt", text);
-text = TextFileReadWriter.ReadFromStreamingAssets("SampleDir/TextFile.txt").text;
-```
+(string text, bool success) ReadFromAssets(string file)
+(string text, bool success) ReadFromAssets(string dir, string file)
 
-These are any other functions. It is enable to read/write in any place.
+(string text, bool success) ReadFromStreamingAssets(string file)
+(string text, bool success) ReadFromStreamingAssets(string dir, string file)
 
-```csharp
-ReadFromAssets         (string relativePath)
-ReadFromStreamingAssets(string relativePath)
-Read                   (string absolutePath)
+(string text, bool success) Read(string dir, string file)
+(string text, bool success) Read(string path)
 
-WriteToAssets         (string relativePath, string text)
-WriteToStreamingAssets(string relativePath, string text)
-Write                 (string absolutePath, string text)
+(string text, bool success) WriteToAssets(string file, string text)
+(string text, bool success) WriteToAssets(string dir, string file, string text)
+
+(string text, bool success) WriteToStreamingAssets(string file, string text)
+(string text, bool success) WriteToStreamingAssets(string dir, string file, string text)
+
+(string text, bool success) Write(string dir, string file, string text)
+(string text, bool success) Write(string path, string text)
 ```
