@@ -1,6 +1,6 @@
 # Unity_TextFileReadWriter
 
-``TextFileReadWriter`` provides simple functions to Read/Write text from/to file.
+``TextFileReadWriter`` provides simple functions to read/write text from/to file.
 
 ## Importing
 
