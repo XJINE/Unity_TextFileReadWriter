@@ -1,7 +1,7 @@
 {
     "name"       : "com.xjine.text_file_read_writer",
     "displayName": "Text File Read Writer", 
-    "version"    : "1.0.0",
+    "version"    : "1.1.1",
     "unity"      : "2021.3",
     "description": "TextFileReadWriter provides simple functions to read/write text from/to file.",
     "author"     :
