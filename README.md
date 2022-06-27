@@ -2,6 +2,14 @@
 
 ``TextFileReadWriter`` provides simple functions to Read/Write text from/to file.
 
+## Importing
+
+You can use Package Manager or import it directly.
+
+```
+https://github.com/XJINE/Unity_TextFileReadWriter.git?path=Assets/Packages/TextFileReadWriter
+```
+
 ## How to Use
 
 Following functions are included.
